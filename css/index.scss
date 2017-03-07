@@ -6,17 +6,19 @@ $middle-font-size: .14rem;
 $small-font-size: .12rem;
 $bigger-font-size: .18rem;
 
-$bodybgc: #fff;
 $mainbgc: rgb(81,160,145);
 $navbgc: rgb(69,62,57);
 $right-side-bgc: rgb(214,204,200);
 $nav-list-bgc: rgb(96,87,83);
+$light: #fff;
+$bodybgc: $light;
+
 
 $border-color: rgb(208,215,202);
 
 
-$filter-bgc: rgb(227,210,215);
-$uncomplet-bgc :rgb(216,235,228);
+$filter-bgc: #e4e4e4;
+$content-select-bgc :#daeeed;
 
 $gray-font: rgb(115,105,101);
 $gray-light-font: rgb(150,144,140);
@@ -31,10 +33,14 @@ body{
 }
 
 header{
-  position: relative;
+  position: absolute;
+  top:10px;
+  left: 0;
   width: 100%;
   height: $header-height;
   background-color: $mainbgc;
+  border-left: 10px solid $light;
+  border-right: 10px solid $light;
   .title{
     display: block;
     height:100%;
@@ -50,35 +56,65 @@ header{
   }
   .shortcut-key{
     position: absolute;
-    right: 0;
+    right: 30px;
     top:16px;
-     border:1px solid #111;
     span.search{
+      position: relative;
+      display: inline-block;
       height: 24px;
       width: 176px;
       border-radius: 8px;
-      padding-right: 20px;
-      background-origin:padding-box;
-      background: #fff url("../images/icon-search.png") right center no-repeat;
+      background-color: $light;
       input{
-        visibility: hidden;
+        position: absolute;
+        padding-left: 14px;
+        border: none;
+        height: 100%;
+        width: 134px;
+        background-color: transparent;
+      }
+      a{
+        position: absolute;
+        right: 0;
+        display: inline-block;
+        width: 40px;
+        height: 100%;
+        background: url(../images/icon-search.png) center center no-repeat;
       }
     }
-    span{
+    span.main-shortcut-key{
       display: inline-block;
+      &:not(:last-child){
+        border-right: 2px solid $light;
+      }
       a{
         display: inline-block;
         width: 26px;
         height: 26px;
+        margin: 0px 10px;
+        background-repeat:no-repeat;
+        &.icon-lingdang{
+          background-image: url("../images/icon-lingdang.png");
+        }
+        &.icon-set{
+          background-image: url("../images/icon-set.png");
+        }
+        &.icon-home{
+          background-image: url("../images/icon-home.png");
+        }
+        &.icon-close{
+          background-image: url("../images/icon-close.png");
+        }
       }
     }
 
   }
 }
 .main{
+  margin-top: 60px;
   width: 100%;
   display: block;
-  height: 900px;
+  height: 100%;
 
   nav,aside{
     position: absolute;
@@ -91,7 +127,7 @@ header{
      height: 100%;
      padding-bottom: 36px;
      background-color: $navbgc;
-     color: #fff;
+     color: $light;
 
      .aside-top{
        text-align: center;
@@ -122,6 +158,9 @@ header{
            text-align: center;
            border-radius: 8px;
            background-color: $nav-list-bgc;
+           &:hover{
+             background-color: $mainbgc;
+           }
          }
          i{
            display: block;
@@ -149,7 +188,11 @@ header{
      ul.nav-list{
        background-color: $nav-list-bgc;
        text-align: left;
-       li{
+       li:hover{
+         background-color: $mainbgc;
+       }
+
+       >li{
          position: relative;
          height: 50px;
          width: 100%;
@@ -158,16 +201,34 @@ header{
          padding-right: 24px;
          font-size: .14rem;
          background-origin: content-box;
-         //background-image: url("../images/icon-approval.png") ;
          background-repeat: no-repeat;
          background-position-y: 50%;
          border-bottom: 1px solid #444444;
-         //li{
-         //  display: inline-block;
-         //  height: 100%;
-         //  width: 32px;
-         //  background-repeat: no-repeat ;
-         //}
+          ul{
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: transparent;
+            width: 100%;
+            background-position-y: 50%;
+            background-repeat: no-repeat ;
+
+            li{
+              color: $light;
+              padding-left: 33%;
+              background-color: $nav-list-bgc;
+              list-style-type: disc;
+              list-style-position: inside;
+
+               &:nth-child(2n+1){
+                 background-color: #474747;
+                 &:hover{
+                   background-color: $mainbgc;
+                 }
+               }
+            }
+          }
+
          >span:nth-child(1){
            display: inline-block;
            padding-left: 40px;
@@ -189,16 +250,41 @@ header{
            background-position-y: 50%;
          }
        }
-       li:nth-child(1){
-         background-image: url("../images/icon-approval.png") ;
-         background-position-y: 50%;
-       }
-       li:nth-child(2){
-         background-image: url("../images/icon-people-no.png") ;
-         background-position-y: 50%;
-       }
      }
    }
+   .icon-approval{
+     background-image:url("../images/icon-approval.png") ;
+   }
+  .icon-people-no{
+    background-image: url("../images/icon-people-no.png") ;
+  }
+  .icon-clock{
+    background-image: url("../images/icon-clock.png") ;
+  }
+  .icon-task{
+    background-image: url("../images/icon-task.png") ;
+  }
+  .icon-text{
+    background-image: url("../images/icon-text.png") ;
+  }
+  .icon-cmr{
+    background-image: url("../images/icon-cmr.png") ;
+  }
+  .icon-hr{
+    background-image: url("../images/icon-hr.png") ;
+  }
+
+  .ranking1{
+    background-image: url("../images/ranking1.png") ;
+  }
+  .ranking2{
+    background-image: url("../images/ranking2.png") ;
+  }
+  .ranking3{
+    background-image: url("../images/ranking3.png") ;
+  }
+
+
   .content{
     background-color: $bodybgc;
     >div{
@@ -223,7 +309,7 @@ header{
             background-color: $mainbgc;
             border-radius: 4px;
             height: 36px;
-            color: #fff;
+            color: $light;
           }
         }
 
@@ -234,12 +320,11 @@ header{
           background-color: $filter-bgc;
           height: 40px;
           line-height: 40px;
-          border-bottom: 2px solid #fff;
+          border-bottom: 2px solid $light;
           padding-left:50px;
           button{
             border: none;
             font-size: .14rem;
-            background-color: transparent;
             margin-right: 47px;
             padding: 6px 14px;
             &.select{
@@ -249,19 +334,10 @@ header{
           span.right{
             position: absolute;
             right: 0;
-            button{
-              background-color: $mainbgc;
-              color: #fff;
-              height: 30px;
-              width: 70px;
-              border-radius: 6px;
-
-            }
-
           }
         }
         .uncomplete-content{
-          background-color: $uncomplet-bgc;
+          background-color: $content-select-bgc;
           border-left: 6px solid $mainbgc;
           height: 400px;
           >dl{
@@ -355,7 +431,7 @@ header{
               }
               button.succuss{
                 background-color: $mainbgc;
-                color: #fff;
+                color: $light;
               }
             }
           }
@@ -370,7 +446,82 @@ header{
     right: 0;
     background-color: $right-side-bgc;
     width: 260px;
-    height: 500px;
+    height: 100%;
+    padding: 36px 10px;
+
+    >div{
+      padding-bottom: 36px;
+    }
+    .today{
+      color: $gray-light-font;
+      text-align: right;
+    }
+
+    .sign-in{
+      position: relative;
+      text-align: center;
+      height: 140px;
+      width: 140px;
+      background-color: $mainbgc;
+      border-radius: 50%;
+      color: $light;
+      margin: 0 auto;
+      div{
+        font-size: 20px;
+        padding-top: 40px;
+      }
+      p{
+        font-size: $middle-font-size;
+      }
+    }
+
+    .calender{
+
+    }
+
+    .list{
+      .item{
+        position: relative;
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+        &.has-image{
+          padding-left: 70px;
+        }
+         img{
+           position: absolute;
+           left: 0;
+           display: inline-block;
+           height: 60px;
+           width: 60px;
+           border-radius: 50%;
+         }
+        >div{
+          display: inline-block;
+          color: $gray-light-font;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          >div{
+            font-size: $base-font-size;
+            font-weight: bold;
+            padding-bottom: 10px;
+          }
+          >p{
+            font-size: $middle-font-size;
+          }
+        }
+        i{
+          position: absolute;
+          right: 0;
+          display: inline-block;
+          background-repeat: no-repeat;
+          background-position: center center;
+          color: black;
+          width: 32px;
+          height: 100%;
+        }
+      }
+    }
   }
 }
 
@@ -387,7 +538,7 @@ header{
     background-color: $mainbgc;
     font-size: $base-font-size;
     border-radius: 6px;
-    color: #fff;
+    color: $light;
     padding: 10px 24px;
     border: none;
   }
@@ -411,3 +562,49 @@ header{
 }
 
 
+.content .filter-box{
+  position: relative;
+  background-color: #e3d2d7;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 2px solid #fff;
+  padding-left: 50px;
+  button{
+    border: none;
+    font-size: $base-font-size;
+    margin-right: 47px;
+    padding: 6px 14px;
+    background-color: transparent;;
+    &.select{
+      color: $mainbgc;
+    }
+  }
+
+  .filter-clear-button{
+    border: none;
+    margin-right: 47px;
+    padding: 4px 14px;
+    background-color: $mainbgc;
+    color: $light;
+    height: 30px;
+    border-radius: 6px;
+  }
+
+  span.right{
+    position: absolute;
+    right: 0;
+  }
+
+  .filter-select{
+    background-color: transparent;
+    font-size: $base-font-size;
+    border: none;
+    option{
+      font-size: $middle-font-size;
+      &[selected]{
+         color:$mainbgc;
+
+      }
+    }
+  }
+}

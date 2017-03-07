@@ -1844,10 +1844,12 @@ body {
 header {
   position: absolute;
   top: 10px;
-  left: 10px;
+  left: 0;
   width: 100%;
   height: 60px;
-  background-color: #51a091; }
+  background-color: #51a091;
+  border-left: 10px solid #fff;
+  border-right: 10px solid #fff; }
   header .title {
     display: block;
     height: 100%;
@@ -1860,7 +1862,7 @@ header {
       padding-left: 40px; }
   header .shortcut-key {
     position: absolute;
-    right: 0;
+    right: 30px;
     top: 16px; }
     header .shortcut-key span.search {
       position: relative;
@@ -1984,12 +1986,12 @@ header {
           .main nav ul.nav-list > li ul li {
             color: #fff;
             padding-left: 33%;
-            background-color: transparent;
+            background-color: #605753;
             list-style-type: disc;
             list-style-position: inside; }
-            .main nav ul.nav-list > li ul li:nth-child(2n) {
+            .main nav ul.nav-list > li ul li:nth-child(2n+1) {
               background-color: #474747; }
-              .main nav ul.nav-list > li ul li:nth-child(2n):hover {
+              .main nav ul.nav-list > li ul li:nth-child(2n+1):hover {
                 background-color: #51a091; }
         .main nav ul.nav-list > li > span:nth-child(1) {
           display: inline-block;
@@ -2053,7 +2055,7 @@ header {
             color: #fff; }
       .main .content > div .uncomplete-box .uncomplete-filter {
         position: relative;
-        background-color: #e3d2d7;
+        background-color: #e4e4e4;
         height: 40px;
         line-height: 40px;
         border-bottom: 2px solid #fff;
@@ -2061,7 +2063,6 @@ header {
         .main .content > div .uncomplete-box .uncomplete-filter button {
           border: none;
           font-size: .14rem;
-          background-color: transparent;
           margin-right: 47px;
           padding: 6px 14px; }
           .main .content > div .uncomplete-box .uncomplete-filter button.select {
@@ -2069,14 +2070,8 @@ header {
         .main .content > div .uncomplete-box .uncomplete-filter span.right {
           position: absolute;
           right: 0; }
-          .main .content > div .uncomplete-box .uncomplete-filter span.right button {
-            background-color: #51a091;
-            color: #fff;
-            height: 30px;
-            width: 70px;
-            border-radius: 6px; }
       .main .content > div .uncomplete-box .uncomplete-content {
-        background-color: #d8ebe4;
+        background-color: #daeeed;
         border-left: 6px solid #51a091;
         height: 400px; }
         .main .content > div .uncomplete-box .uncomplete-content > dl {
@@ -2227,4 +2222,76 @@ header {
       margin-left: 10px;
       background-origin: padding-box; }
 
-/*# sourceMappingURL=index.css.map */
+.content .filter-box {
+  position: relative;
+  background-color: #e3d2d7;
+  height: 40px;
+  line-height: 40px;
+  border-bottom: 2px solid #fff;
+  padding-left: 50px; }
+  .content .filter-box button {
+    border: none;
+    font-size: 0.16rem;
+    margin-right: 47px;
+    padding: 6px 14px;
+    background-color: transparent; }
+    .content .filter-box button.select {
+      color: #51a091; }
+  .content .filter-box .filter-clear-button {
+    border: none;
+    margin-right: 47px;
+    padding: 4px 14px;
+    background-color: #51a091;
+    color: #fff;
+    height: 30px;
+    border-radius: 6px; }
+  .content .filter-box span.right {
+    position: absolute;
+    right: 0; }
+  .content .filter-box .filter-select {
+    background-color: transparent;
+    font-size: 0.16rem;
+    border: none; }
+    .content .filter-box .filter-select option {
+      font-size: 0.14rem; }
+      .content .filter-box .filter-select option[selected] {
+        color: #51a091; }
+
+.content-list {
+  padding: 30px 20px;
+  border-bottom: 1px solid #e4e4e4; }
+  .content-list .content-item div {
+    position: relative;
+    font-size: 0.16rem;
+    padding-bottom: 18px; }
+    .content-list .content-item div span {
+      position: absolute;
+      right: 0;
+      font-size: 0.12rem; }
+  .content-list .content-item p {
+    text-indent: 2em;
+    font-size: 0.14rem; }
+
+.zhidu-content {
+  padding: 30px 62px; }
+  .zhidu-content h2 {
+    padding: 15px 2px;
+    color: #51a091;
+    border-bottom: 2px solid #96908c; }
+  .zhidu-content p {
+    font-size: 0.14rem;
+    padding: 2px;
+    text-indent: 2em; }
+  .zhidu-content .button-box {
+    width: 100%;
+    text-align: right;
+    padding-top: 40px; }
+    .zhidu-content .button-box button {
+      font-size: 0.16rem;
+      padding: 10px 32px;
+      background-color: #51a091;
+      border: none;
+      border-radius: 4px;
+      color: #fff; }
+
+/*# sourceMappingURL=hr-1.css.map */

@@ -1,0 +1,52 @@
+@import "index.scss";
+
+.content-list{
+  padding: 30px 20px;
+  border-bottom: 1px solid $filter-bgc;
+  .content-item{
+
+    div{
+      position: relative;
+      font-size: $base-font-size;
+      padding-bottom: 18px;
+
+      span{
+        position: absolute;
+        right: 0;
+        font-size: $small-font-size;
+      }
+    }
+    p{
+      text-indent: 2em;
+      font-size: $middle-font-size;
+    }
+  }
+
+}
+.zhidu-content{
+  padding: 30px 62px;
+  h2{
+    padding: 15px 2px;
+    color: $mainbgc;
+    border-bottom: 2px solid $gray-light-font;
+  }
+  p{
+    font-size: $middle-font-size;
+    padding: 2px;
+    text-indent: 2em;
+  }
+  .button-box{
+    width: 100%;
+    text-align: right;
+    padding-top: 40px;
+    button{
+      font-size: $base-font-size;
+      padding: 10px 32px;
+      background-color: $mainbgc;
+      border: none;
+      border-radius: 4px;
+      color: $bodybgc;
+    }
+  }
+
+}
