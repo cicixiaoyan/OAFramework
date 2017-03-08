@@ -24,7 +24,10 @@
 
 }
 .zhidu-content{
-  padding: 30px 62px;
+  height: 100%;
+  width: auto;
+  padding: 0 62px 30px;
+  float: right;
   h2{
     padding: 15px 2px;
     color: $mainbgc;
@@ -50,3 +53,13 @@
   }
 
 }
+
+.hr-content-list{
+  >div{
+    display: inline-block;
+  }
+  .hr-main{
+    width: 570px;
+  }
+}
+

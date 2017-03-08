@@ -77,16 +77,7 @@ $grid-gutter-widths: (
         xl: $grid-gutter-width-base
 ) !default;
 
-$spacer:   .4rem !default;
-
-
-$font-size-h1: .4rem !default;
-$font-size-h2: .32rem !default;
-$font-size-h3: .28rem !default;
-$font-size-h4: .24rem !default;
-$font-size-h5: .18rem !default;
-$font-size-h6: .16rem !default;
-
+$spacer:   40px !default;
 
 $headings-margin-bottom: ($spacer / 2) !default;
 $headings-font-family:   inherit !default;
@@ -175,7 +166,9 @@ $lte7:true !default;
 
 @mixin border-radius($radius: $border-radius) {
   @if $enable-rounded {
-    border-radius: $radius;
+    @include prefixer(border-radius,$radius,webkit moz spec);
+    behavior: url("../dist/PIE.htc");
+    //border-radius: $radius;
   }
 }
 
@@ -187,7 +180,7 @@ html {
 
 body, button, select, textarea, input, label, option, fieldset, legend {
   font-family: Tahoma, Verdana;
-  font-size: 0.12rem;
+  font-size: 12px;
   color: #444;
   background-color: #ddd;
 }
@@ -207,20 +200,12 @@ h1, h2, h3, h4, h5, h6,
   color: $headings-color;
 }
 
-h1, .h1 { font-size: $font-size-h1; }
-h2, .h2 { font-size: $font-size-h2; }
-h3, .h3 { font-size: $font-size-h3; }
-h4, .h4 { font-size: $font-size-h4; }
-h5, .h5 { font-size: $font-size-h5; }
-h6, .h6 { font-size: $font-size-h6; }
-
-
 textarea {
   resize: none;
 }
 
 .clear {
-  height: 0.01rem;
+  height: 1px;
   overflow: hidden;
   clear: both;
 }
@@ -289,29 +274,20 @@ li {
 .text-center {
   text-align: center;
 }
-
-.font12 {
-  font-size: 0.12rem;
-}
-
-.font14 {
-  font-size: 0.14rem;
-}
-
-.font16 {
-  font-size: 0.16rem;
+.text-right{
+  text-align: right;
 }
 
 .padding{
-  padding:0.1rem;
+  padding:10px;
 }
 
 .padding_top {
-  padding-top: 0.1rem;
+  padding-top: 10px;
 }
 
 .padding_top20 {
-  padding-top: 0.2rem;
+  padding-top: 20px;
 }
 
 .hide {

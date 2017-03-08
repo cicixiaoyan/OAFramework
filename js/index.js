@@ -2,42 +2,56 @@
  * Created by Administrator on 2017/3/6.
  */
 
-function changeFrameHeight(){
-    var rfm= document.getElementById("contentiframe");
-    contentiframe.height=document.documentElement.clientHeight;
-}
-window.onresize=function(){
-    changeFrameHeight();
-};
-
 var navlist = [
-    {"icon":"icon-approval","name":"审批","href":"#"},
-    {"icon":"icon-people-no","name":"公告","href":"#"},
-    {"icon":"icon-clock","name":"考勤","href":"#"},
-    {"icon":"icon-task","name":"任务","href":"#"},
-    {"icon":"icon-text","name":"工作报告","href":"#"},
-    {"icon":"icon-cmr","name":"CRM","href":"#"},
-    {"icon":"icon-hr","name":"hr","href":"#","chirldren":[
-        {"name":"制度","url":"#"},
-        {"name":"学习进度","url":"#"},
-        {"name":"员工档案","url":"#"},
-        {"name":"薪资","url":"#"},
-        {"name":"招聘申请","url":"#"},
-        {"name":"招聘计划","url":"#"},
-        {"name":"面试登记","url":"#"},
-        {"name":"录用管理","url":"#"}
+    {"name":"审批","href":"#"},
+    {"name":"公告","href":"#"},
+    {"cname":"考勤","href":"#"},
+    {"name":"任务","href":"#"},
+    {"iname":"工作报告","href":"#"},
+    {"name":"CRM","href":"#"},
+    {"name":"hr","href":"#","chirldren":[
+        {"name":"制度","hash":"#"},
+        {"name":"学习进度","hash":"#"},
+        {"name":"员工档案","hash":"#"},
+        {"name":"薪资","hash":"#"},
+        {"name":"招聘申请","hash":"#"},
+        {"name":"招聘计划","hash":"#"},
+        {"name":"面试登记","hash":"#"},
+        {"name":"录用管理","hash":"#"}
     ]}
 ];
 
+function setIframeHeight(iframe) {
+    if (iframe) {
+            iframe.style.height = window.screen.availHeight+'px';
+    }
+}
 
 $(function(){
-     $(".nav-list li").on("click",function(){
+    //$(".main").height($(window).height());
+
+    setIframeHeight(document.getElementById('contentiframe'));
+
+    $(".nav-list >li").on("click",function(){
          var thisUl = $(this).children("ul");
-         thisUl.toggleClass("hide","show");
-     });
-    $(".nav-list li").on("mouseenter",function(){
-        var thisUl = $(this).children("ul");
-        thisUl.removeClass("hide").addClass("show");
+         thisUl.toggleClass("show");
+        if(thisUl.hasClass("show")){
+            $(this).children('.icon').removeClass("icon-right").addClass("icon-down");
+        }else{
+            $(this).children('.icon').removeClass("icon-down").addClass("icon-right");
+        }
+        if($("#aid").attr("data-href")){
+            window.contentiframe.location.href = $(this).attr('data-href');
+        }
+
+    });
+
+    $(".nav-list >li li").on("click",function(e){
+        e.stopPropagation();
+        e.preventDefault();
+        if($("#aid").attr("data-href")){
+            window.contentiframe.location.href = $(this).attr('data-href');
+        }
     });
 
 });
